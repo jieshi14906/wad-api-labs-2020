@@ -4,6 +4,7 @@ import express from 'express';
 import moviesRouter from './api/movies';
 import bodyParser from 'body-parser';
 import {loadUsers} from './seedData'
+import usersRouter from './api/users';
 
 
 dotenv.config();
@@ -26,6 +27,7 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use('/api/movies', moviesRouter);
+app.use('/api/users', usersRouter);
 app.use(errHandler);
 
 app.listen(port, () => {
